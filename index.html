@@ -137,22 +137,78 @@
                             <!-- 時間 -->
                         </div>
                         <div class="insidemain row">
-                            <div class="list">待辦事項清單<br>
-                                <input type="text" id="accordioninput" onclick="accordion()" placeholder="新增工作"
-                                    style="height: 40px; width: 100%;font-size: 14px;">
-                                <div id="accordionContent" class="accordion-content">
-                                    <ul class="row class= " dropdown-menu aria-labelledby="dropdownMenuLink">
-                                        <li class=" col-8">
-                                            <a href="#" style="margin-left: 10px;">123</a>
-                                            <a href="#" style="margin-left: 10px;">123</a>
-                                            <a href="#" style="margin-left: 10px;">123</a>
-                                        </li>
-                                        <li class="col">
-                                            <button style="color:rgb(131, 131, 131); border: solid 1px gray">
-                                                儲存
-                                            </button>
-                                        </li>
-                                    </ul>
+                            <div class="insidemain row">
+                                <div class="list">
+                                    <h2>待辦事項清單</h2>
+                                    <input type="text" id="accordioninput" onclick="accordion()" placeholder="新增工作"
+                                        style="height: 40px; width: 100%; font-size: 14px;">
+                                    <div id="accordionContent" class="accordion-content">
+                                        <ul id="taskList" class="row" aria-labelledby="dropdownMenuLink">
+                                            <li class="col-8">
+                                                <label for="date" style="padding-left:10px;">到期日:</label>
+                                                <input type="date" id="date" style="width: 130px; padding-left: 10px;">
+                                                <button onclick="saveTask()"
+                                                    style="color: rgb(131, 131, 131); border: solid 1px gray;">儲存</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tablelist">
+                                        <div class="space"></div>
+                                        <div class="scroll">
+                                            intput儲存後的內容位置
+                                            <br>
+                                            超過div用滾輪呈現
+                                            <br>
+                                            123456
+                                            <br>
+                                            456789
+                                            <br>
+                                            789123
+                                            <br>
+                                            123456
+                                            <br>
+                                            456789
+                                            <br>
+                                            789123
+                                            <br>
+                                            123456
+                                            <br>
+                                            intput儲存後的內容位置
+                                            <br>
+                                            超過div用滾輪呈現
+                                            <br>
+                                            123456
+                                            <br>
+                                            456789
+                                            <br>
+                                            789123
+                                            <br>
+                                            123456
+                                            <br>
+                                            456789
+                                            <br>
+                                            789123
+                                            <br>
+                                            123456
+                                            intput儲存後的內容位置
+                                            <br>
+                                            超過div用滾輪呈現
+                                            <br>
+                                            123456
+                                            <br>
+                                            456789
+                                            <br>
+                                            789123
+                                            <br>
+                                            123456
+                                            <br>
+                                            456789
+                                            <br>
+                                            789123
+                                            <br>
+                                            123456
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -325,7 +381,124 @@
             margin-right: 10px;
         }
 
+        @media screen and (max-width: 344px) {
+            .accordion-content {
+                width: 100%;
+                box-sizing: border-box;
+                margin-top: 10px;
+                /* 調整頂部外邊距以保持與上面的元素間的間距 */
+                height: auto;
+                /* 讓高度自動適應內容 */
+                max-height: none;
+                /* 清除最大高度限制 */
+            }
+
+            ul.row {
+                flex-direction: column;
+                align-items: center;
+                /* 將內容置中 */
+                padding: 0;
+                /* 清除 ul 元素的 padding，以防止垂直排列時的間距問題 */
+            }
+
+            li.col {
+                width: 100%;
+                margin-bottom: 10px;
+                margin-top: 5px;
+                text-align: center;
+                /* 將文本內容置中 */
+            }
+
+            .accordion-content a {
+                margin-bottom: 10px;
+                /* 增加底邊距，讓元素分行 */
+
+            }
+
+            .list {
+                font-size: 16px;
+            }
+
+            .insidetitle {
+                margin-top: 10px;
+                font-size: 9px;
+                padding-left: 20px;
+            }
+
+            .sidepanel a {
+                font-size: 9px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .accordion-content {
+                width: 100%;
+                box-sizing: border-box;
+                margin-top: 10px;
+                /* 調整頂部外邊距以保持與上面的元素間的間距 */
+                height: auto;
+                /* 讓高度自動適應內容 */
+                max-height: none;
+                /* 清除最大高度限制 */
+            }
+
+            ul.row {
+                flex-direction: column;
+                align-items: center;
+                /* 將內容置中 */
+                padding: 0;
+                /* 清除 ul 元素的 padding，以防止垂直排列時的間距問題 */
+            }
+
+            li.col {
+                width: 100%;
+                margin-bottom: 10px;
+                margin-top: 5px;
+                text-align: center;
+                /* 將文本內容置中 */
+            }
+
+            .accordion-content a {
+                margin-bottom: 10px;
+                /* 增加底邊距，讓元素分行 */
+
+            }
+
+            .list {
+                font-size: 16px;
+            }
+
+            .insidetitle {
+                margin-top: 10px;
+                font-size: 9px;
+                padding-left: 20px;
+            }
+
+            .sidepanel a {
+                font-size: 9px;
+            }
+        }
+
         /* ----------------------待辦事項輸入框 end------------------------*/
+        /*-----------------------------顯示框-----------------------------*/
+        .tablelist {
+            margin-top: 50px;
+            height: calc(100vh - 330px);
+            background-color: #b4a7f0;
+        }
+
+        .space {
+            height: 10px;
+        }
+
+        .scroll {
+            background-color: #a6a6a7;
+            margin: 10px;
+            padding-left: 10px;
+            height: calc(100vh - 370px);
+            overflow: auto;
+
+        }
     </style>
     <script>
         /* ----------------------側邊欄------------------------*/
@@ -360,8 +533,24 @@
 
         function accordion() {
             var accordionContent = document.getElementById('accordionContent');
-
             accordionContent.style.display = (accordionContent.style.display === 'none' || accordionContent.style.display === '') ? 'block' : 'none';
+        }
+
+        function saveTask() {
+            var inputText = document.getElementById('accordioninput').value;
+
+            if (inputText.trim() !== "") {
+                var taskList = document.getElementById('taskList');
+                var newTaskItem = document.createElement('li');
+                newTaskItem.textContent = inputText;
+
+                // You can customize the task item styling here if needed
+
+                taskList.appendChild(newTaskItem);
+
+                // Clear the input field after displaying the task
+                document.getElementById('accordioninput').value = "";
+            }
         }
         /* ----------------------代辦清單 下拉清單 end------------------------*/
 
