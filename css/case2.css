@@ -1,0 +1,281 @@
+body {
+    font-family: 'Roboto', sans-serif;}
+
+/* ----------------------title樣式------------------------*/
+
+.title {
+    background-color: rgb(147, 231, 161);
+    border-bottom: solid 3px rgb(171, 172, 173);
+    height: 50px;
+}
+
+/* ----------------------title樣式 end------------------------*/
+/* ----------------------input輸入框------------------------*/
+
+.form-control:focus {
+    color: #d6d1ec;
+    background-color: #fff;
+    border-color: #d6d1ec;
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem #d6d1ec;
+
+}
+
+/* ----------------------input輸入框 end------------------------*/
+
+/* ----------------------待辦事項清單標題------------------------*/
+.list {
+    padding-top: 20px;
+    font-size: 30px;
+    align-items: center;
+}
+
+/* ----------------------待辦事項清單標題 end------------------------*/
+/* ----------------------title左上角標題------------------------*/
+
+.padding {
+    padding-left: 20px;
+    font-size: 16px;
+}
+
+/* ----------------------title左上角標題 end------------------------*/
+/* ----------------------title 三個button ------------------------*/
+
+.button {
+    background-color: rgb(157, 214, 238);
+    border-radius: 40%;
+}
+
+.button:hover {
+    transform: translateY(-5px);
+    background-color: rgb(157, 214, 238);
+}
+
+/* ----------------------title 三個button end ------------------------*/
+
+/* ----------------------main裡面------------------------*/
+
+
+.main {
+    background-color: rgb(247, 247, 216);
+    height: calc(100vh - 50px);
+}
+
+.left {
+    width: 50px;
+}
+
+.right {
+    width: calc(100% - 50px);
+}
+
+.insidemain {
+    height: calc(100vh - 124px);
+}
+
+.insidetitle {
+    margin-top: 10px;
+    font-size: 18px;
+    padding-left: 20px;
+}
+
+.row>* {
+    padding-left: 0;
+}
+
+/* ----------------------main裡面 end------------------------*/
+/* ----------------------側邊欄 ------------------------*/
+.sidebar {
+    height: calc(100% - 50px);
+    padding-left: 0px;
+}
+
+.sidepanel {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 50px;
+    left: 0;
+    background-color: rgb(247, 247, 216);
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+    border-right: solid 2px #818181;
+}
+
+.sidepanel a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #b42a2a;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidepanel a:hover {
+    color: rgb(54, 207, 87)
+}
+
+.sidepanel .closebtn {
+    position: absolute;
+    top: 0;
+    font-size: 20px;
+    margin-left: 0;
+    padding-left: 15px;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: rgb(247, 247, 216);
+    color: rgb(0, 0, 0);
+    padding: 10px 15px;
+    border: none;
+}
+
+.openbtn:hover {
+    background-color: rgb(247, 247, 216);
+}
+
+/* ----------------------側邊欄 end------------------------*/
+/* ----------------------待辦事項輸入框------------------------*/
+.accordion-content {
+    display: none;
+    overflow: hidden;
+    padding: 10px;
+    background-color: #f1f1f1;
+    height: 40px;
+    font-size: 16px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+li {
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 344px) {
+    .accordion-content {
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 10px;
+        /* 調整頂部外邊距以保持與上面的元素間的間距 */
+        height: auto;
+        /* 讓高度自動適應內容 */
+        max-height: none;
+        /* 清除最大高度限制 */
+    }
+
+    ul.row {
+        flex-direction: column;
+        align-items: center;
+        /* 將內容置中 */
+        padding: 0;
+        /* 清除 ul 元素的 padding，以防止垂直排列時的間距問題 */
+    }
+
+    li.col {
+        width: 100%;
+        margin-bottom: 10px;
+        margin-top: 5px;
+        text-align: center;
+        /* 將文本內容置中 */
+    }
+
+    .accordion-content a {
+        margin-bottom: 10px;
+        /* 增加底邊距，讓元素分行 */
+
+    }
+
+    .list {
+        font-size: 16px;
+    }
+
+    .insidetitle {
+        margin-top: 10px;
+        font-size: 9px;
+        padding-left: 20px;
+    }
+
+    .sidepanel a {
+        font-size: 9px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .accordion-content {
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 10px;
+        /* 調整頂部外邊距以保持與上面的元素間的間距 */
+        height: auto;
+        /* 讓高度自動適應內容 */
+        max-height: none;
+        /* 清除最大高度限制 */
+    }
+
+    ul.row {
+        flex-direction: column;
+        align-items: center;
+        /* 將內容置中 */
+        padding: 0;
+        /* 清除 ul 元素的 padding，以防止垂直排列時的間距問題 */
+    }
+
+    li.col {
+        width: 100%;
+        margin-bottom: 10px;
+        margin-top: 5px;
+        text-align: center;
+        /* 將文本內容置中 */
+    }
+
+    .accordion-content a {
+        margin-bottom: 10px;
+        /* 增加底邊距，讓元素分行 */
+
+    }
+
+    .list {
+        font-size: 16px;
+    }
+
+    .insidetitle {
+        margin-top: 10px;
+        font-size: 9px;
+        padding-left: 20px;
+    }
+
+    .sidepanel a {
+        font-size: 9px;
+    }
+}
+
+/* ----------------------待辦事項輸入框 end------------------------*/
+/*-----------------------------顯示框-----------------------------*/
+.scroll {
+    background-color: rgb(175, 212, 212);
+    margin-top: 10px;
+    padding-left: 10px;
+    height: calc(100vh - 370px);
+    overflow: auto;
+
+}
+
+/*--------------------頁籤切換-----------------------------*/
+
+.content {
+    display: none;
+}
+.btn-secondary:hover {
+    color: #ff0000;
+    background-color: #06182b;
+    border-color: #000000;
+}
