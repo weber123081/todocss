@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="box"></div>
+  <script>
+    var el = document.querySelector('.box');
+    el.addEventListener('mousemove', function () {
+      el.style.background = 'black';
+    }, false)
+    el.addEventListener('mouseout', function () {
+      // 在離開時還原背景顏色
+      el.style.backgroundColor = 'aqua';
+    }, false);
+  </script>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: aqua;
+    }
+  </style>
+</body>
+
+</html>

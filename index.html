@@ -9,9 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Potta+One&family=Stick&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-        crossorigin="anonymous"></script>
     <link id="case1" href="css/case1.css" rel="stylesheet">
     <link id="case2" href="css/case2.css" rel="stylesheet">
     <link id="case3" href="css/case3.css" rel="stylesheet">
@@ -23,7 +20,7 @@
     <div class="container-fluid">
         <div class="row title align-items-center">
             <div class="col-3"><a href="#tab-all" onclick="showContent('contentall')"
-                    class="text-decoration-none text-dark padding">待辦事項</a></div>
+                    class="text-decoration-none text-dark padding ">待辦事項</a></div>
             <div class="col-4">
                 <input type="search" class="form-control" style="width: 100%;">
             </div>
@@ -41,15 +38,15 @@
                     </svg>
                 </button>
             </div>
-            <div class="col-4 text-end">
+            <div class="col-4 text-end btn">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     主題
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#" onclick="changecase('case1')">主題一</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changecase('case2')">主題二</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changecase('case3')">主題三</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)" onclick="changecase('case1')">主題一</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)" onclick="changecase('case2')">主題二</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)" onclick="changecase('case3')">主題三</a></li>
                 </ul>
                 <button class="button" style="border: none;">
                     <svg width="15px" height="20px" viewBox="0 80 1024 1024" class="icon" version="1.1"
@@ -167,26 +164,26 @@
                                             <li class="col-8">
                                                 <label for="date" style="padding-left:10px;">到期日:</label>
                                                 <input type="date" id="date" style="width: 140px; padding-left: 10px;">
-                                                <button onclick="saveTask()"
+                                                <button id="save" onclick="saveTask()"
                                                     style="color: rgb(131, 131, 131); border: solid 1px gray;">儲存</button>
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="content-group">
-                                        <div class="scroll content contentall">
-                                            所有行程
+                                        <div id="content-all" class="scroll content contentall">
+                                            <h2>所有行程</h2>
                                         </div>
-                                        <div class="scroll content content1">
-                                            今日行程
+                                        <div id="content-today" class="scroll content content1">
+                                            <h2>今日行程</h2>
                                         </div>
-                                        <div class="scroll content content2">
-                                            重要
+                                        <div id="content-important" class="scroll content content2">
+                                            <h2>重要</h2>
                                         </div>
-                                        <div class="scroll content content3">
-                                            已計畫
+                                        <div id="content-planned" class="scroll content content3">
+                                            <h2>已計畫</h2>
                                         </div>
-                                        <div class="scroll content content4">
-                                            完成
+                                        <div id="content-completed" class="scroll content content4">
+                                            <h2>完成</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -197,6 +194,9 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

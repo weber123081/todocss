@@ -279,3 +279,45 @@ li {
     background-color: #06182b;
     border-color: #000000;
 }
+.content-group{
+    font-size: 16px;
+}
+/*--------------------內容資料樣式-----------------------------*/
+/* 基本樣式 */
+.task-item {
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 10px;
+    position: relative;
+}
+
+.task-item p {
+    margin: 0;
+}
+
+.task-item button {
+    margin-top: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* 懸停效果 */
+.task-item:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.task-item button:hover {
+    background-color: #ddd;
+}
+#save:hover{
+    box-shadow: 0 0 10px rgba(141, 120, 120, 1);
+}
+#save:active{
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+}
+h2{
+    padding-top: 10px;
+}

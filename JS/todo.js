@@ -1,4 +1,10 @@
-       /* ----------------------側邊欄------------------------*/
+        window.onload = function () {
+            updateCurrentDate();
+            changecase('case3');
+            document.querySelector('a[href="#tab-all"]').click();
+        };
+
+        /* ----------------------側邊欄------------------------*/
 
         function openNav() {
             document.getElementById("mySidepanel").style.width = "140px";
@@ -10,45 +16,97 @@
         }
         /* ----------------------側邊欄 end ------------------------*/
         /* ----------------------時間日期------------------------*/
-
         function updateCurrentDate() {
-            var currentDate = new Date();
-            var year = currentDate.getFullYear();
-            var month = currentDate.getMonth() + 1; // Months are zero-based
-            var day = currentDate.getDate();
-            var dayOfWeek = currentDate.getDay(); // 0 is Sunday, 1 is Monday, etc.
-            month = (month < 10) ? "0" + month : month;
-            day = (day < 10) ? "0" + day : day;
-            var daysOfWeek = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
-            var formattedDate = month + "月" + day + "日，" + daysOfWeek[dayOfWeek];
-            document.getElementById("current-date").textContent = formattedDate;
+            var currentDateElement = document.getElementById("current-date");
+
+            if (currentDateElement) {
+                // 在確保元素存在後再設置 'textContent'
+                var currentDate = new Date();
+                var year = currentDate.getFullYear();
+                var month = currentDate.getMonth() + 1;
+                var day = currentDate.getDate();
+                var dayOfWeek = currentDate.getDay();
+                month = (month < 10) ? "0" + month : month;
+                day = (day < 10) ? "0" + day : day;
+                var daysOfWeek = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+                var formattedDate = month + "月" + day + "日，" + daysOfWeek[dayOfWeek];
+                currentDateElement.textContent = formattedDate;
+            }
         }
-        setInterval(updateCurrentDate, 1000);
-        updateCurrentDate();
+
         /* ----------------------時間日期 end------------------------*/
         /* ----------------------代辦清單 下拉清單------------------------*/
-
+        //顯示輸入欄
         function accordion() {
             var accordionContent = document.getElementById('accordionContent');
-            accordionContent.style.display = (accordionContent.style.display === 'none' || accordionContent.style.display === '') ? 'block' : 'none';
+            if (accordionContent) {
+                accordionContent.style.display = 'block';
+            } else {
+                console.error('Accordion content not found.');
+            }
+        }
+        //隱藏輸入欄
+        function hideAccordionContent() {
+            var accordionContent = document.getElementById('accordionContent');
+            if (accordionContent) {
+                accordionContent.style.display = 'none';
+            } else {
+                console.error('Accordion content not found.');
+            }
         }
 
+        // 保存代辦事項
+        var taskCounter = 1; // 計數器初始值
         function saveTask() {
             var inputText = document.getElementById('accordioninput').value;
 
             if (inputText.trim() !== "") {
-                var taskList = document.getElementById('taskList');
-                var newTaskItem = document.createElement('li');
-                newTaskItem.textContent = inputText;
+                var date = document.getElementById('date').value;
 
-                // You can customize the task item styling here if needed
+                // Create a new task element
+                var taskElement = document.createElement('div');
+                taskElement.classList.add('task-item');
 
-                taskList.appendChild(newTaskItem);
+                // Add task content with a numbered prefix
+                taskElement.innerHTML = '<p><strong>' + taskCounter + '. ' + inputText + '</strong><br>到期日: ' + date + '</p>';
 
-                // Clear the input field after displaying the task
+                // Create an edit button
+                var editButton = document.createElement('button');
+                editButton.textContent = '修改';
+                editButton.addEventListener('click', function () {
+                    // Handle edit button click
+                    var newText = prompt('Edit task:', inputText);
+                    if (newText !== null) {
+                        inputText = newText;
+                        taskElement.querySelector('p').innerHTML = '<strong>' + inputText + '</strong><br>到期日: ' + date;
+                    }
+                });
+
+                // Create a delete button
+                var deleteButton = document.createElement('button');
+                deleteButton.textContent = '刪除';
+                deleteButton.addEventListener('click', function () {
+                    // Handle delete button click
+                    taskElement.remove();
+                });
+
+                // Increment the task counter
+                taskCounter++;
+
+                // Add edit button and delete button to taskElement
+                taskElement.appendChild(editButton);
+                taskElement.appendChild(deleteButton);
+
+                // Append the task element to the task display div
+                document.getElementById('content-all').appendChild(taskElement);
+
+                // Clear the input fields after displaying the task
                 document.getElementById('accordioninput').value = "";
+                document.getElementById('date').value = "";
             }
+            hideAccordionContent();
         }
+
         /* ----------------------代辦清單 下拉清單 end------------------------*/
         function showContent(contentId) {
             var contentElements = document.querySelectorAll('.scroll.content');
@@ -65,7 +123,8 @@
             document.getElementById('case1').disabled = true;
             document.getElementById('case2').disabled = true;
             document.getElementById('case3').disabled = true;
-    
+
             // 啟用選擇的主題的CSS
             document.getElementById(themeId).disabled = false;
         }
+        /* ----------------------資料分類------------------------*/
